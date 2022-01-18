@@ -1,0 +1,36 @@
+NAME counter
+VAR
+  b0    : boolean;
+  b1   : boolean;
+  b2   : boolean;
+	
+
+INIT
+ !b0 & !b1 & !b2;
+
+RULES
+
+
+!b0 : 
+	b0 := true
+
+!b1 :
+ 	if (b0) 
+	  b0 := false; 
+          b1 := true
+        else
+          skip
+        fi
+
+!b2 :
+ 	if (b0 & b1) 
+	  b0 := false; 
+          b1 := false;
+	  b2 := true	
+        else
+          skip
+        fi
+
+b0 & b1 & b2 :
+        b0 := false; b1 := false; b2 := false
+
